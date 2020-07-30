@@ -29,12 +29,7 @@ Header files and libraries for %{name}.
 %setup -q
 
 sed -i 's|/lib|/libexec|' tools/settings/settings.pro
-## consider relying on %%_qt5_bindir (see %%build below) instead of patching -- rex
-#sed -i 's|qmake|qmake-qt5|' src/dtk_module.prf
-#sed -i 's|lrelease|lrelease-qt5|' tools/script/dtk-translate.py src/dtk_translation.prf
-
 %build
-# help find (and prefer) qt5 utilities, e.g. qmake, lrelease
 export PATH=%{_qt5_bindir}:$PATH
 %qmake_qt5 PREFIX=%{_prefix} \
            DTK_VERSION=%{version} \
@@ -71,5 +66,5 @@ export PATH=%{_qt5_bindir}:$PATH
 /usr/share/glib-2.0/schemas/*
 
 %changelog
-* Thu Jun 11 2020 uoser <uoser@uniontech.com> - 5.2.1
-- Update to 5.2.1
+* Thu Jul 30 2020 openEuler Buildteam <buildteam@openeuler.org> - 5.2.1-1
+- Package init
