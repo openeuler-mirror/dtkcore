@@ -1,5 +1,5 @@
 Name:           dtkcore
-Version:        5.2.1
+Version:        5.2.2.3+rpm
 Release:        1
 Summary:        Deepin tool kit core modules
 License:        GPLv3
@@ -66,5 +66,8 @@ export PATH=%{_qt5_bindir}:$PATH
 /usr/share/glib-2.0/schemas/*
 
 %changelog
+* Mon Jul 12 2021 weidong <weidong@uniontech.com> - 5.2.2.3-1
+- Update 5.2.2.3
+
 * Thu Jul 30 2020 openEuler Buildteam <buildteam@openeuler.org> - 5.2.1-1
 - Package init
