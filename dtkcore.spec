@@ -1,10 +1,10 @@
 Name:           dtkcore
-Version:        5.2.2.3+rpm
-Release:        1
+Version:        5.2.2.3
+Release:        2
 Summary:        Deepin tool kit core modules
 License:        GPLv3
 URL:            https://github.com/linuxdeepin/dtkcore
-Source0:        %{name}_%{version}.orig.tar.xz
+Source0:        %{name}-%{version}.orig.tar.xz
 BuildRequires:  gcc-c++
 BuildRequires:  annobin
 BuildRequires:  pkgconfig(Qt5Core)
@@ -66,6 +66,9 @@ export PATH=%{_qt5_bindir}:$PATH
 /usr/share/glib-2.0/schemas/*
 
 %changelog
+* Thu Jul 15 2021 weidong <weidong@uniontech.com> - 5.2.2.3-2
+- Format specfile.
+
 * Mon Jul 12 2021 weidong <weidong@uniontech.com> - 5.2.2.3-1
 - Update 5.2.2.3
 
