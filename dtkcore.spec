@@ -1,6 +1,6 @@
 Name:           dtkcore
 Version:        5.4.11.2
-Release:        1
+Release:        2
 Summary:        Deepin tool kit core modules
 License:        LGPLv3+
 URL:            https://github.com/linuxdeepin/dtkcore
@@ -20,6 +20,7 @@ Obsoletes:      deepin-tool-kit <= 0.3.3
 Obsoletes:      deepin-tool-kit-devel <= 0.3.3
 Obsoletes:      dtksettings <= 0.1.7
 Obsoletes:      dtksettings-devel <= 0.1.7
+Obsoletes:      dtkcore2
 
 %description
 Deepin tool kit core modules.
@@ -72,6 +73,9 @@ export PATH=%{_qt5_bindir}:$PATH
 %{_libdir}/lib%{name}.so
 
 %changelog
+* Thu Jul 28 2022 liweiganga <liweiganga@uniontech.com> - 5.4.11.2-2
+- fix install conflict
+
 * Tue Jul 19 2022 konglidong <konglidong@uniontech.com> - 5.4.11.2-1
 - Update to 5.4.11.2
 
