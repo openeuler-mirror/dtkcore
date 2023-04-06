@@ -1,0 +1,64 @@
+From 90e010a7bafa442e46d19a6dc6a8b02d3cebce31 Mon Sep 17 00:00:00 2001
+From: zorowk <pengwenhao@uniontech.com>
+Date: Wed, 1 Dec 2021 10:12:58 +0800
+Subject: [PATCH] fix: ut link error in dtk.
+
+the member definition need to be separate in some build environment.
+
+Log:
+Influence: build error.
+Signed-off-by: zorowk <pengwenhao@uniontech.com>
+Change-Id: Idd982f0e0a17efa50e170c4590c83ea75abaa031
+---
+ tests/ut_dconfig.cpp     | 5 +++--
+ tests/ut_dconfigfile.cpp | 4 ++--
+ 2 files changed, 5 insertions(+), 4 deletions(-)
+
+diff --git a/tests/ut_dconfig.cpp b/tests/ut_dconfig.cpp
+index 4cf17b9..7e99d81 100644
+--- a/tests/ut_dconfig.cpp
++++ b/tests/ut_dconfig.cpp
+@@ -29,6 +29,9 @@
+ 
+ DCORE_USE_NAMESPACE
+ 
++static constexpr char const *APP_ID = "tests";
++static constexpr char const *FILE_NAME = "example";
++
+ class ut_DConfig : public testing::Test
+ {
+ protected:
+@@ -50,8 +53,6 @@ protected:
+     static EnvGuard backendType;
+     static EnvGuard fileBackendLocalPerfix;
+     static FileCopyGuard *metaGuard;
+-    static constexpr char const *APP_ID = "tests";
+-    static constexpr char const *FILE_NAME = "example";
+ };
+ EnvGuard ut_DConfig::fileBackendLocalPerfix;
+ EnvGuard ut_DConfig::backendType;
+diff --git a/tests/ut_dconfigfile.cpp b/tests/ut_dconfigfile.cpp
+index 253fcd8..c3c156d 100644
+--- a/tests/ut_dconfigfile.cpp
++++ b/tests/ut_dconfigfile.cpp
+@@ -29,6 +29,8 @@
+ 
+ DCORE_USE_NAMESPACE
+ 
++static constexpr char const *LocalPrefix = "/tmp/example";
++
+ class ut_DConfigFile : public testing::Test
+ {
+ protected:
+@@ -42,8 +44,6 @@ protected:
+     }
+     virtual void TearDown() override;
+ 
+-    static constexpr char const *LocalPrefix = "/tmp/example";
+-
+     const char *APP_ID = "org.foo.appid";
+     const char *FILE_NAME = "org.foo.name";
+     QString metaPath = QString("%1/opt/apps/%2/files/schemas/configs").arg(LocalPrefix, APP_ID);
+-- 
+2.20.1
+
